@@ -35,4 +35,18 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Transient, Category = "TEST")
 	float TestVar;
+
+	UPROPERTY(EditAnywhere)
+	int32 CountdownTime;
+
+	UTextRenderComponent* CountdownText;
+
+	void UpdateTimerDisplay();
+
+	void AdvanceTimer();
+	UFUNCTION(BlueprintNativeEvent)
+	void CountdownHasFinished();
+	virtual void CountdownHasFinished_Implementation();
+
+	FTimerHandle CountdownTimerHandle;
 };
